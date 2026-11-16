@@ -1,0 +1,26 @@
+#!name=去广告
+#!desc=屏蔽腾讯广点通、快手磁力引擎、Sigmob 及视频应用自有广告接口（整理自 Quantumult X 抓包）
+#!author=sea-001
+#!system=ios
+#!date=2026-11-16 21:52:00
+#!version=1.0.0
+
+[Rule]
+# 腾讯广点通
+DOMAIN-SUFFIX,gdt.qq.com,REJECT
+DOMAIN-SUFFIX,e.qq.com,REJECT
+DOMAIN-SUFFIX,ugdtimg.com,REJECT
+DOMAIN-SUFFIX,gdtimg.com,REJECT
+DOMAIN,tdid.m.qq.com,REJECT
+# 快手磁力引擎
+DOMAIN-SUFFIX,e.kuaishou.com,REJECT
+DOMAIN-SUFFIX,adkwai.com,REJECT
+DOMAIN-SUFFIX,adukwai.com,REJECT
+DOMAIN,gdfp.gifshow.com,REJECT
+# Sigmob
+DOMAIN-SUFFIX,sigmob.cn,REJECT
+# 其他广告 CDN
+DOMAIN,v66-ad.ndcjl.com,REJECT
+# 应用自有广告接口（只拦这两个路径，不影响看视频）
+URL-REGEX,^http://43\.136\.81\.215/zx/api/ad/start/cp,REJECT
+URL-REGEX,^http://43\.136\.81\.215/zx/api/banners,REJECT
